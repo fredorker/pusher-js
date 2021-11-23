@@ -1936,11 +1936,19 @@ var Protocol = {
                 }
                 catch (e) { }
             }
-            var pusherEvent = {
-                event: messageData.event,
-                channel: messageData.channel,
-                data: pusherEventData
-            };
+            if (messageData.event) {
+        var pusherEvent: PusherEvent = {
+          event: messageData.event,
+          channel: messageData.channel,
+          data: pusherEventData
+        };
+      } else {
+        var pusherEvent: PusherEvent = {
+          event: 'Update',
+          channel: 'data',
+          data: messageData
+        }
+      }
             if (messageData.user_id) {
                 pusherEvent.user_id = messageData.user_id;
             }
