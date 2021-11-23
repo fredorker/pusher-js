@@ -1937,13 +1937,13 @@ var Protocol = {
                 catch (e) { }
             }
             if (messageData.event) {
-        var pusherEvent: PusherEvent = {
+        var pusherEvent = {
           event: messageData.event,
           channel: messageData.channel,
           data: pusherEventData
         };
       } else {
-        var pusherEvent: PusherEvent = {
+        var pusherEvent = {
           event: 'Update',
           channel: 'data',
           data: messageData
